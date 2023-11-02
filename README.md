@@ -6,8 +6,8 @@ Työaikakirjaus is a web application for tracking working hours. The front-end c
 
  In the employee view the employee can make the check in between 7:20 - 9:10. The check out can be made after 8h 04min from check in. The page also shows the working hour data for the previous six days.
 
-<img src="public/työaikakirjaus_employees.png" alt="drawing" width="66%"/>
+<img src="/client/public/työaikakirjaus_admin1.png" alt="drawing" width="66%"/>
 
 
 # Authentication
-The application is intended for use by Virittämö Helsinki only and the user must log in with the Virittämö Helsinki's email address. 
+The application is intended for use by Virittämö Helsinki only and the user must log in with the Virittämö Helsinki's email address. Only the users registered in intranet-portal can use the application.
