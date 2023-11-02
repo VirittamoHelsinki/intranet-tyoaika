@@ -1,0 +1,137 @@
+.schedule-main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: fit-content;
+
+  .schedule-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 1440px;
+    height: 888px;
+    padding: 40px 40px 0;
+    gap: 40px;
+
+    .employee-name-month-buttons {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+
+      .employee-name-title {
+        display: flex;
+        justify-content: flex-start;
+
+        label {
+          font-family: "Arial", sans-serif;
+          font-style: normal;
+          font-weight: 400;
+          font-size: 32px;
+          line-height: 24px;
+          text-align: left;
+        }
+      }
+
+      .month-buttons-row {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-end;
+        width: 200px;
+
+        .arrow-button {
+          display: flex;
+          justify-content: center;
+          font-weight: 800;
+          font-size: 32px;
+          line-height: 32px;
+          cursor: pointer;
+        }
+
+        .month-label {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-family: "Arial", sans-serif;
+          font-style: normal;
+          font-weight: 400;
+          font-size: 24px;
+          line-height: 24px;
+          color: #9fc9eb;
+          text-align: center;
+        }
+      }
+    }
+
+    .schedule-list {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      width: 100%;
+
+      .schedule-data {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        width: 100%;
+        align-items: center;
+        padding: 5px 25px;
+        font-family: "Arial", sans-serif;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 15px;
+        line-height: 24px;
+
+        .date-content {
+          display: flex;
+          flex-direction: row;
+          justify-content: flex-start;
+          width: 25%;
+          gap: 10px;
+
+          .weekday-label {
+            width: 40px;
+          }
+        }
+
+        .time-label {
+          display: flex;
+          justify-content: flex-start;
+          width: 17%;
+        }
+
+        &.even {
+          background: #dceaf5;
+        }
+
+        &.title {
+          display: flex;
+          align-items: center;
+          height: 51px;
+          background: #9fc9eb;
+          font-family: "Arial", sans-serif;
+          font-style: normal;
+          font-weight: 700;
+          font-size: 15px;
+          line-height: 24px;
+          border-bottom: 2px solid black;
+        }
+      }
+    }
+  }
+
+  .error-loading-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 1440px;
+    height: 888px;
+    font-family: "Arial", sans-serif;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 42px;
+    line-height: 42px;
+    text-align: center;
+  }
+}
