@@ -1,17 +1,22 @@
 import mongoose from "mongoose";
 
 const workTimeSchema = new mongoose.Schema({
-  name: String, // Add the "name" field
-  arrival: {
-    type: Date,
-    required: true,
-  },
-  departure: {
-    type: Date,
-  },
+   name: String,
+   arrival: {
+     type: Date,
+     required: true,
+   },
+   departure: {
+     type: Date,
+   },
 });
 
 export const WorkTime = mongoose.model('WorkTime', workTimeSchema);
+
+
+
+
+
 
 
 

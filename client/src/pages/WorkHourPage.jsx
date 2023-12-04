@@ -1,3 +1,123 @@
+
+
+
+
+
+
+// import React, { useState, useEffect } from "react";
+// import { getHHMMSS, getHHMM } from "../features/functions";
+// import { weekdays } from "../features/arrays";
+// import "../styles/WorkHourPage.scss";
+// import "../styles/MainPage.scss";
+
+// const WorkHourPage = () => {
+//   const [time, setTime] = useState(getHHMMSS());
+//   const [arrival, setArrival] = useState(null);
+//   const [departure, setDeparture] = useState(null);
+//   const [name, setName] = useState(""); // New state for the name
+//   const [workTimes, setWorkTimes] = useState([]);
+//   const [showModal, setShowModal] = useState(false);
+//   const [modalText, setModalText] = useState("");
+//   const [modalTime, setModalTime] = useState(new Date());
+
+//   // Update the clock time every second
+//   useEffect(() => {
+//     const interval = setInterval(() => setTime(getHHMMSS()), 1000);
+//     return () => {
+//       clearInterval(interval);
+//     };
+//   }, []);
+
+//   // Fetch work times from the backend when the component mounts
+//   useEffect(() => {
+//     const fetchWorkTime = async () => {
+//       try {
+//         const response = await fetch('http://localhost:5555/api/worktimes');
+
+//         if (response.status === 200) {
+//           const data = await response.json();
+//           setWorkTimes(data);
+
+//           // Find the most recent arrival and departure entries and set them
+//           const latestArrival = data.find(entry => entry.arrival);
+//           const latestDeparture = data.find(entry => entry.departure);
+//           if (latestArrival) {
+//             setArrival(new Date(latestArrival.arrival));
+//           }
+//           if (latestDeparture) {
+//             setDeparture(new Date(latestDeparture.departure));
+//           }
+//         } else {
+//           console.error('Error fetching work times');
+//         }
+//       } catch (error) {
+//         console.error('Error while making the request:', error);
+//       }
+//     };
+
+//     fetchWorkTime();
+//   }, []);
+
+//   // Function to save the arrival time to the backend and update the state
+//   const saveArrival = async () => {
+//     try {
+//       const response = await fetch('http://localhost:5555/api/worktimes/arrival', {
+//         method: 'POST',
+//         headers: {
+//           'Content-Type': 'application/json',
+//         },
+//         body: JSON.stringify({ name, arrival: new Date() }), // Include the name
+//       });
+
+//       if (response.status === 200) {
+//         const data = await response.json();
+//         console.log('Arrival time saved with ID:', data.id);
+
+//         // Update the arrival state
+//         setArrival(new Date());
+//       } else {
+//         console.error('Error saving arrival time');
+//       }
+//     } catch (error) {
+//       console.error('Error while making the request:', error);
+//     }
+//   };
+
+//   // Function to save the departure time to the backend and update the state
+//   const saveDeparture = async () => {
+//     if (!arrival) {
+//       console.error('Arrival time is missing. Please save arrival time first.');
+//       return;
+//     }
+
+//     try {
+//       const response = await fetch('http://localhost:5555/api/worktimes/departure', {
+//         method: 'POST',
+//         headers: {
+//           'Content-Type': 'application/json',
+//         },
+//         body: JSON.stringify({ name, departure: new Date() }), // Include the name
+//       });
+
+//       if (response.status === 200) {
+//         console.log('Departure time saved');
+
+//         // Update the departure state
+//         setDeparture(new Date());
+//       } else {
+//         console.error('Error saving departure time');
+//         alert('Error: Unable to save departure time. Please try again later.');
+//       }
+//     } catch (error) {
+//       console.error('Error while making the request:', error);
+//       alert('An error occurred while saving the departure time. Please try again later.');
+//     }
+//   };
+
+
+
+//working version
+
 import React, { useState, useEffect } from "react";
 import { getHHMMSS, getHHMM } from "../features/functions";
 import { weekdays } from "../features/arrays";
@@ -56,7 +176,7 @@ const WorkHourPage = () => {
   const saveArrival = async () => {
     try {
       const response = await fetch('http://localhost:5555/api/worktimes/arrival', {
-        method: 'POST',
+        method: 'POST', // Change this to 'PUT'
         headers: {
           'Content-Type': 'application/json',
         },
@@ -86,7 +206,7 @@ const WorkHourPage = () => {
 
     try {
       const response = await fetch('http://localhost:5555/api/worktimes/departure', {
-        method: 'POST',
+        method: 'PUT', // Change this to 'PUT'
         headers: {
           'Content-Type': 'application/json',
         },
